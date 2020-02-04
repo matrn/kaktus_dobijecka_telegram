@@ -2,8 +2,8 @@
 Kaktus dobíječka telegram bot
 
 # Installation
-- `pip3 install python-telegram-bot`
-- `pip3 install selectolax`
+- telegram bot: `pip3 install python-telegram-bot --upgrade`
+- html parsing: `pip3 install selectolax --upgrade`
 
 
 # Monitor MEM & CPU usage
