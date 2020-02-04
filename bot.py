@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #pip3 install python-telegram-bot --upgrade
+
+
 # This program is dedicated to the public domain under the CC0 license.
 
 """
@@ -19,11 +21,11 @@ import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from env import TELEGRAM_TOKEN
 from dobijecka import Dobijecka
+import time
 
 
 # Enable logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-					level=logging.INFO)
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 logger = logging.getLogger(__name__)
 
@@ -101,4 +103,15 @@ if __name__ == '__main__':
 	# Run the bot until you press Ctrl-C or the process receives SIGINT,
 	# SIGTERM or SIGABRT. This should be used most of the time, since
 	# start_polling() is non-blocking and will stop the bot gracefully.
-	updater.idle()
+
+	try:
+		while True:
+
+			time.sleep(10)
+
+	except KeyboardInterrupt:
+		print('KeyboardInterrupt')
+
+	print('stopping')
+	updater.stop()
+	#updater.idle()
