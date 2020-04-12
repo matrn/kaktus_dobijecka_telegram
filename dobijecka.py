@@ -10,10 +10,11 @@ from datetime import datetime
 class Dobijecka:
 	def __init__(self):
 		self.URL = 'https://www.mujkaktus.cz/chces-pridat'
+		self.timeout = 10
 
 	def get_data(self):
 		try:
-			return requests.get(self.URL).text
+			return requests.get(self.URL, timeout = self.timeout).text
 		except requests.exceptions.RequestException as e:
 			return None
 
