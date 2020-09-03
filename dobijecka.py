@@ -136,23 +136,23 @@ class Dobijecka:
 		#use old html parser at first time
 		raw_data, data = self.parse_data_html_old(html)
 		if data == None:
-			debugp("Old html parser failed, trying new")
+			self.debugp("Old html parser failed, trying new")
 
 			#use new html parser if old failed
 			raw_data, data = self.parse_data_html_new(html)
 			if data == None:
-				debugp("New html parser failed")
+				self.debugp("New html parser failed")
 				return None, { 'error':'HTML parse failed', 'raw':html }
 
 		#use old date parser
 		date, start_time, stop_time = self.parse_date_old(data)
 		if date == None:
-			debugp("Old date parser failed, trying new")
+			self.debugp("Old date parser failed, trying new")
 
 			#use new date parser is old failed
 			date, start_time, stop_time = self.parse_date_old(data)
 			if date == None:
-				debugp("New date parser failed")
+				self.debugp("New date parser failed")
 				return None, { 'error':'DATE parsing failed', 'raw':data }
 		
 		return self.is_date_today(date), { 'date':date, 'start':start_time, 'stop':stop_time, 'msg':raw_data}
