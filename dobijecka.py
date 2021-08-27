@@ -28,7 +28,7 @@ class Dobijecka:
 
 	############OLD parser##########
 	def parse_data_html_old(self, html):
-		for node in HTMLParser(html).css('div.wrapper > h2.uppercase + h3.uppercase.text-drawn'):
+		for node in HTMLParser(html).css('div.wrapper > h3.uppercase.text-drawn'):   #div.wrapper > h2.uppercase + h3.uppercase.text-drawn
 			raw_node_data = node.text().replace('\xa0', ' ').replace('  ', ' ')
 			node_data = raw_node_data.strip().lower()
 			if 'pokud si dneska' in node_data and 'od' in node_data and 'do' in node_data:
